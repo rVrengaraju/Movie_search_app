@@ -1,0 +1,33 @@
+<% include partials/header%>
+
+<div class="container">
+	<br>
+	<h1>Search for a Movie!</h1>
+	<form action="/results" method="GET">
+		<input type="text" placeholder="Type Text Here!" name="movieName">
+		<input type="submit">
+	</form>
+	<br>
+	<a href="/"><button>reset</button></a>
+</div>
+<br>
+
+<% if(list === undefined){ %>
+	<h1 class="container"> No such movies with keyword(s) "<%=part%>" were found :( </h1>
+<% } else { %>
+	<%for(var i=0; i< list.length; i++){%>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-1"> <b>Title:</b></div>
+				<div class="col-lg-4"><%= list[i].Title %></div> 
+				<div class="col-lg-1"><b>Date: </b></div>
+				<div class="col-lg-4c"><%= list[i].Year%></div>
+			</div>
+		</div>
+	<% } %>
+<% } %>
+
+
+
+
+<% include partials/footer%>
